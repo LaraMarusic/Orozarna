@@ -32,5 +32,5 @@ class Sopek:
         return {
             "sopek": slovar_sopkov,
             "os" : self.os.py
-            }
-
+            
+      #      Link : https://drive.google.com/drive/folders/17m8-n03kBdhueTJ6-yuDrOv9hwd1rw47?usp=sharing
