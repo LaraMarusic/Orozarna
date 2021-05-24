@@ -11,12 +11,53 @@
   </blockquote>
 
   <form action="/izbiraj/" method="GET">
-    <button type="submit">Izberi namen dogodka</button>
+    <button type="submit">
+Izberi namen dogodka
+    </button>
+   </form>
+      <div class="form-check">
+        <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked>
+        <label class="form-check-label" for="flexCheckChecked">
+Pogrebni aranžmaji, nagrobna okrasitev
+      </label>
+      </div>
+    <div class="form-check">
+  <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked>
+  <label class="form-check-label" for="flexCheckChecked">
+Zakramenti - krst, obhajilo, birma
+    </label>
+     </div>
+     <div class="form-check">
+  <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked>
+  <label class="form-check-label" for="flexCheckChecked">
+Posebne priložnosti - rojstni dnevi, obletnice, valentinovo ...
+   </label>
+   </div>
+<div class="form-check">
+  <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked>
+  <label class="form-check-label" for="flexCheckChecked">
+  Poroke
+  </label>
+</div>
+
+
+
+ <form action="/izbiraj/" method="GET">
+    <button type="submit">
+Izberi tip aranžmaja
+</button>
   </form>
 
-  <form action="/izbiraj/" method="GET">
-    <button type="submit">Izberi tip aranžmaja</button>
-  </form>
+<div class="form-check">
+  <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked>
+  <label class="form-check-label" for="flexCheckChecked">
+
+  </label>
+</div>
+
+
+
+
 
     <form action="/izbiraj/" method="GET">
     <button type="submit">Izberi barvo rož</button>
@@ -30,3 +71,6 @@
 </body>
 
 </html>
+
+
+
