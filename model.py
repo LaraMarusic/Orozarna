@@ -7,13 +7,14 @@ barva = 'b'
 rože = 'r'
 
 class Sopek:
+    """Izberemo kakšen aranžma želimo in nato poiščemo sliko, ki mu je vektorsko najbližje  """
 
     def __init__(self, uid, fp):
         self.uid = uid
         self.fp = fp
 
-    def slika(self,slika):
-        self.slika = slika[:]
+    def izbira(self,izbira):
+        self.izbira = izbira[:]
 
     def vektor(self,vektor):
         self.vektor = vektor[:]
@@ -27,57 +28,34 @@ class Sopek:
                 uid += 1
 
     
+
     
+    def primerjava_fingerprint_izbira(fp, izbira):
+        primerjava_namen = izbira & fp[1] 
+        primerjava_tip = izbira & fp[2]
+        primerjava_barva = izbira & fp[3]
+        primerjava_roze = izbira & fp[4]
+        return [primerjava_namen, primerjava_tip, primerjava_barva, primerjava_roze]
 
-    def namen(n,fp):
-        a = 0
-        for x in fp:
-            if x == fp:
-                a += 1
-                return a
-            else:
-                pass
-        return a
+    def najboljsi_kompromisi(izbira):
+        stevilo_izbire = {}
+        for x in izbira:
+            for namen,tip,barva,roze in izbira:
+                stevilo_izbire[namen] = stevilo_izbire.get(namen, 0) + 1
+                stevilo_izbire[tip] = stevilo_izbire.get(tip, 0) + 1
+                stevilo_izbire[barva] = stevilo_izbire.get(barva, 0) + 1
+                stevilo_izbire[roze] = stevilo_izbire.get(roze, 0) + 1
+        max_ujemanje = 0
+        naj_priblizek = set()
 
-    def tip(t,fp):
-        b = 0
-        for x in fp:
-            if x == fp:
-                b += 1
-                return b
-            else:
-                pass
-        return b
+        for izbira in stevilo_izbire:    
+            if stevilo_izbire[izbira] > max_ujemanje:
+                naj_priblizek = {izbira}
+                max_ujemanje = stevilo_izbire[izbira]
+            elif stevilo_izbire[izbira] == max_ujemanje:
+                naj_priblizek.add(izbira)
 
-    def barva(b,fp):
-        c = 0
-        for x in fp:
-            if x == fp:
-                c += 1
-                return c
-            else:
-                pass
-        return c
-
-    def rože(r,fp):
-        d = 0
-        for x in fp:
-            if x == fp:
-                d += 1
-                return d
-            else:
-                pass
-        return d
-
-    def seštej(a,b,c,d):
-        s = sum(a,b,c,d)
-        return s
-
-    def naj_rezultat(s,uid):
-        max
-
-
-
+        return naj_priblizek
 
 
     def dobi_json_slovar(self):
@@ -86,10 +64,6 @@ class Sopek:
         }
 
 
-
-
-            
-#      Link : https://drive.google.com/drive/folders/17m8-n03kBdhueTJ6-yuDrOv9hwd1rw47?usp=sharing
 
 class Orozarna:
 

@@ -1,6 +1,6 @@
 import os
 import model
-
+# zacetni uvoz
 
 def niz_v_fingerprint(name):
     name=name.replace(" ", "")

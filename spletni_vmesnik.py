@@ -10,10 +10,10 @@ def osnovna_stran():
     stanje = izbira()
     return bottle.template(
         "osnovna_stran.html",
-        namen=stanje.stevilo_zamujenih(),
-        opravila=stanje.aktualni_spisek.opravila if stanje.aktualni_spisek else [],
-        spiski=stanje.spiski,
-        aktualni_spisek=stanje.aktualni_spisek,
+        namen=stanje.namen(),
+        tip=stanje.tip(),
+        barva=stanje.barva(),
+        roze=stanje.roze(),
         uporabnisko_ime=bottle.request.get_cookie("uporabnisko_ime"),
     )
 
@@ -37,60 +37,28 @@ def odjava_post():
     bottle.redirect("/")
 
 
-@bottle.post("/dodaj/")
-def dodaj_opravilo():
-    ime = bottle.request.forms.getunicode("ime")
-    opis = bottle.request.forms.getunicode("opis")
-    if bottle.request.forms["datum"]:
-        datum = date.fromisoformat(bottle.request.forms["datum"])
-    else:
-        datum = None
-    opravilo = Opravilo(ime, opis, datum)
-    stanje = nalozi_uporabnikovo_stanje()
-    stanje.dodaj_opravilo(opravilo)
-    shrani_uporabnikovo_stanje(stanje)
+@bottle.post("/izberi/")
+def izberi_svoj_sanjski_aranžma():
+    namen = bottle.request.forms.getunicode("namen")
+    tip = bottle.request.forms.getunicode("tip")
+    barva = bottle.request.forms.getunicode("barva")
+    roza = bottle.request.forms.getunicode("roza")   
+    izbira = Sopek(namen, tip, barva,roza)
+    stanje = izbira()
+    stanje.dodaj_izbiro(izbira)
+    shrani_izbiro(izbira)
     bottle.redirect("/")
 
 
-@bottle.get("/dodaj-spisek/")
-def dodaj_spisek_get():
-    return bottle.template("dodaj_spisek.html", napake={}, polja={})
 
 
-@bottle.post("/dodaj-spisek/")
-def dodaj_spisek_post():
-    ime = bottle.request.forms.getunicode("ime")
-    polja = {"ime": ime}
-    stanje = nalozi_uporabnikovo_stanje()
-    napake = stanje.preveri_podatke_novega_spiska(ime)
-    if napake:
-        return bottle.template("dodaj_spisek.html", napake=napake, polja=polja)
-    else:
-        spisek = Spisek(ime)
-        stanje.dodaj_spisek(spisek)
-        shrani_uporabnikovo_stanje(stanje)
-        bottle.redirect("/")
-
-
-@bottle.post("/zamenjaj-opravljeno/")
-def zamenjaj_opravljeno():
+@bottle.post("/pokazi izbrano/")
+def pokazi_izbrano():
     indeks = bottle.request.forms.getunicode("indeks")
-    stanje = nalozi_uporabnikovo_stanje()
-    opravilo = stanje.aktualni_spisek.opravila[int(indeks)]
-    opravilo.zamenjaj_opravljeno()
-    shrani_uporabnikovo_stanje(stanje)
-    bottle.redirect("/")
+    stanje = izberi_svoj_sanjski_aranžma()
+    bottle.redirect("/https://drive.google.com/drive/folders/17m8-n03kBdhueTJ6-yuDrOv9hwd1rw47?usp=sharing")
 
 
-@bottle.post("/zamenjaj-aktualni-spisek/")
-def zamenjaj_aktualni_spisek():
-    print(dict(bottle.request.forms))
-    indeks = bottle.request.forms.getunicode("indeks")
-    stanje = nalozi_uporabnikovo_stanje()
-    spisek = stanje.spiski[int(indeks)]
-    stanje.aktualni_spisek = spisek
-    shrani_uporabnikovo_stanje(stanje)
-    bottle.redirect("/")
 
 
 @bottle.error(404)
