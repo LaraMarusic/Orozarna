@@ -1,7 +1,7 @@
 import bottle
 import os
 import model
-import Sopek
+from model import Sopek
 import json
 
 
