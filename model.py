@@ -5,12 +5,16 @@ namen = 'n'
 tip = 't'
 barva = 'b'
 rože = 'r'
+izbira = 'i'
+shrani_izbiro = 's'
+
 
 class Sopek:
     """Izberemo kakšen aranžma želimo in nato poiščemo sliko, ki mu je vektorsko najbližje  """
 
     def __init__(self, uid, fp):
         self.uid = uid
+        
         self.fp = fp
 
     def izbira(self,izbira):
@@ -67,6 +71,7 @@ class Sopek:
 
 class Orozarna:
 
+
     def __init__(self, zacetni_sopki = None , prost_id = 0):
         self.sopki = zacetni_sopki = {}
         self.prost_id = prost_id
@@ -109,7 +114,6 @@ class Orozarna:
     
 
     
-
 
 
 
