@@ -123,13 +123,19 @@
     let dok = document.getElementById('dokoncaj');
 
     dok.addEventListener('click', function () {
+      // namen <- stevilka namena, ali 1 ali 2 ali 3
       let namen = document.getElementById('namen').value;
+      // namen <- stevilka aranzmaja
       let aranzma = document.getElementById('aranzma').value;
+      // namen <- stevilka barve
       let barva = document.getElementById('barva').value;
+      // namen <- stevilka izbire roz
       let izberi_roze = document.getElementById('izberi-roze').value;
 
       let id = namen + aranzma + barva + izberi_roze;
       let nid = "";
+
+      // sestavi se ime poti do slike npr. 1244 nastane '1','2','4','4'
       for (let i = 0; i < id.length; i++) {
         if (i < id.length - 1) {
           nid += "'" + id[i] + "'" + ","
@@ -137,8 +143,10 @@
           nid += "'" + id[i] + "'"
         }
       }
+      // dooda se '.jpg' na koncu
       nid += '.jpg'
 
+      // v DOM element img se nastavi pot do slike
       document.getElementById('slika').src = './Slike/' + nid;
     });
   </script>
