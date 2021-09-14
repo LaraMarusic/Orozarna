@@ -7,21 +7,23 @@ app.use(express.static('./public'));
 
 app.get('/:id', function (req, res) {
 
-    let id =  req.params.id;
+    let id = req.params.id;
 
-    let nid = "'";
-    for(let i =0; i < id.length;i++) {
-        if(i < id.length - 1){
-            nid += id[i] + ","
+    let nid = "";
+    for (let i = 0; i < id.length; i++) {
+        if (i < id.length - 1) {
+            nid += "'" + id[i] + "'" + ","
         } else {
-            nid += id[i]
+            nid += "'" + id[i] + "'"
         }
     }
-    nid += "'";
+    nid += "";
     fs.readdir('./public/Slike', function (err, files) {
+        console.log(nid);
         for (let file of files) {
             if (file.indexOf(nid) != -1) {
-                res.json({value: file}); 
+                console.log(file);
+                res.json({ value: file });
             }
         }
     });
