@@ -2,44 +2,48 @@
 
 <html>
 
+<head>
+
+  <title>Orozarna Jasmina</title>
+
+</head>
+
 <body>
 
-  <h1>Orožarna Jasmina</h1>
+  <!-- Sem dal z ker ž se ne lepo prevede ker je 'special charecter' -->
+  <h1>Orozarna Jasmina</h1>
 
   <blockquote>
     Oborožite se z najboljšimi rožami.
     Najlepši aranžmaji, šopki, ikebane,... In pomoč vsem, ki ne poznajo razlike med njimi
   </blockquote>
 
-  <form action="/izbiraj/" method="GET">
-    <button type="submit">
-      Izberi namen dogodka
-    </button>
+  <form action="http://localhost:8080/izberi/" method="POST">
+    <div class="form-check">
+      <input class="form-check-input" type="checkbox" value="test" id="flexCheckChecked" checked>
+      <label class="form-check-label" for="flexCheckChecked">
+        Pogrebni aranžmaji, nagrobna okrasitev
+      </label>
+    </div>
+    <div class="form-check">
+      <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked>
+      <label class="form-check-label" for="flexCheckChecked">
+        Zakramenti - krst, obhajilo, birma
+      </label>
+    </div>
+    <div class="form-check">
+      <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked>
+      <label class="form-check-label" for="flexCheckChecked">
+        Posebne priložnosti - rojstni dnevi, obletnice, valentinovo ...
+      </label>
+    </div>
+    <div class="form-check">
+      <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked>
+      <label class="form-check-label" for="flexCheckChecked">
+        Poroke
+      </label>
+    </div>
   </form>
-  <div class="form-check">
-    <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked>
-    <label class="form-check-label" for="flexCheckChecked">
-      Pogrebni aranžmaji, nagrobna okrasitev
-    </label>
-  </div>
-  <div class="form-check">
-    <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked>
-    <label class="form-check-label" for="flexCheckChecked">
-      Zakramenti - krst, obhajilo, birma
-    </label>
-  </div>
-  <div class="form-check">
-    <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked>
-    <label class="form-check-label" for="flexCheckChecked">
-      Posebne priložnosti - rojstni dnevi, obletnice, valentinovo ...
-    </label>
-  </div>
-  <div class="form-check">
-    <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked>
-    <label class="form-check-label" for="flexCheckChecked">
-      Poroke
-    </label>
-  </div>
 
 
 

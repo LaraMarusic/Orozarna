@@ -43,6 +43,7 @@ def izberi_svoj_sanjski_aranžma():
     tip = bottle.request.forms.getunicode("tip")
     barva = bottle.request.forms.getunicode("barva")
     roza = bottle.request.forms.getunicode("roza")   
+    print(namen)
     izbira = Sopek(namen, tip, barva,roza)
     stanje = izbira()
     stanje.dodaj_izbiro(izbira)

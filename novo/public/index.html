@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+  <title>Orozarna Jasmina</title>
+
+</head>
+
+<body>
+
+  <!-- Sem dal z ker ž se ne lepo prevede ker je 'special charecter' -->
+  <h1>Orozarna Jasmina</h1>
+
+  <blockquote>
+    Oborožite se z najboljšimi rožami.
+    Najlepši aranžmaji, šopki, ikebane,... In pomoč vsem, ki ne poznajo razlike med njimi
+  </blockquote>
+
+  <h3>Namen:</h3>
+  <select id='namen'>
+    <option value="1">
+      Pogrebni aranžmaji, nagrobna okrasitev
+    </option>
+    <option value="">
+      Zakramenti - krst, obhajilo, birma
+    </option>
+    <option value="">
+      Posebne priložnosti - rojstni dnevi, obletnice, valentinovo ...
+    </option>
+    <option value="">
+      Poroke
+    </option>
+
+  </select>
+
+  <h3>
+    Izberi tip aranžmaja
+  </h3>
+  <select id='aranzma'>
+    <option value="">
+      Avtomobilska okrasitev
+    </option>
+    <option value="">
+      Gumbnice
+    </option>
+    <option value="">
+      Cerkvena okrasitev
+    </option>
+    <option value="">
+      Pogrebni aranžmaji
+    </option>
+    <option value="">
+      Posebne priložnosti
+    </option>
+    <option value="">
+      Ikebane
+    </option>
+    <option value="">
+      Okrasitev doma
+    </option>
+    <option value="">
+      Blazinica za prstane - srce
+    </option>
+    <option value="">
+      Šopki
+    </option>
+    <option value="">
+      Torte
+    </option>
+    <option value="">
+      Venčki
+    </option>
+    <option value="">
+      Viseči aranžmaji
+    </option>
+    <option value="">
+      Zapestnice
+    </option>
+  </select>
+
+  <h3>Izberi barvo rož</h3>
+  <select id='brava'>
+    <option value="">
+      Bela
+    </option>
+    <option value="">
+      Roza
+    </option>
+    <option value="">
+      Rdeča
+    </option>
+    <option value="">
+      Modra
+    </option>
+    <option value="">
+      Zelena
+    </option>
+    <option value="">
+      Rumena
+    </option>
+    <option value="">
+      Oranžna
+    </option>
+    <option value="">
+      Vijola
+    </option>
+  </select>
+
+
+  <h3>Izberi rože</h3>
+  <select id="izberi-roze">
+    <option value="">
+      Vrtnice
+    </option>
+    <option value="">
+      Gerbera
+    </option>
+    <option value="">
+      Kala
+    </option>
+    <option value="">
+      Zelenje
+    </option>
+    <option value="">
+      Orhideja
+    </option>
+    <option value="">
+      Nageljni
+    </option>
+    <option value="">
+      Šlajer
+    </option>
+    <option value="">
+      Tulipani
+    </option>
+    <option value="">
+      Ostalo rezano cvetje
+    </option>
+  </select>
+
+  <button id='dokoncaj'>dokoncaj</button>
+
+
+  <script>
+
+    let dok = document.getElementById('dokoncaj');
+
+    dok.addEventListener('click', function() {
+      let namen = document.getElementById('namen').value;
+    });
+  </script>
+
+</body>
+
+</html>
